@@ -40,7 +40,7 @@ class Register extends StatelessWidget {
         
               const RegisterForm(),
         
-               SizedBox(height: screenHeight * 0.1),
+              SizedBox(height: screenHeight * 0.1),
         
               const AuthCardComponent(
                   logo: 'assets/images/google.png',
