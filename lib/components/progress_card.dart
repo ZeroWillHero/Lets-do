@@ -15,17 +15,24 @@ class ProgressCard extends StatelessWidget {
       ),
       width: MediaQuery.of(context).size.width,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.fromLTRB(20.0,20,20.0,20),
         child: Column(
           
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Your Progress", style: TextStyle(fontSize: 20, color: textColor)),
-            SizedBox(height: 10),
-            Row(children: [
+            const Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: const Text("Your Progress", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: textColor)),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              
+              children: [
               CircularPercentIndicator(
-              radius: 50.0,
-              lineWidth: 20.0,
+              radius: 40.0,
+              lineWidth: 10.0,
               percent: 0.5,
               center: const Text("50%",
                   style: TextStyle(
@@ -33,20 +40,53 @@ class ProgressCard extends StatelessWidget {
                       color: textColor,
                       fontWeight: FontWeight.bold)),
               progressColor: teritaryColor,
+               backgroundColor: Colors.white,
             ),
             const SizedBox(
-              width: 10,
+              width: 20,
             ),
             const Column(
               children: [
-                Text("Your Day\nProgress",
+                Text("Completed \n50% for today",
                     style: TextStyle(
                         fontSize: 15,
-                        color: textColor,
+                        color: teritaryColor,
+                        fontWeight: FontWeight.bold))
+              ],
+            )
+            ],),
+
+            const SizedBox(height: 10),
+
+            Row(children: [
+              CircularPercentIndicator(
+              radius: 40.0,
+              lineWidth: 10.0,
+              percent: 0.5,
+              center: const Text("3h",
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: textColor,
+                      fontWeight: FontWeight.bold)),
+              progressColor: teritaryColor,
+              fillColor: backgroundColor,
+              backgroundColor: Colors.white,
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            const Column(
+              children: [
+                Text("Remain 3h \nfor today",
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: teritaryColor,
                         fontWeight: FontWeight.bold))
               ],
             )
             ],)
+
+
           ],
         ),
       ),
