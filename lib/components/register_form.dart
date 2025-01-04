@@ -11,7 +11,7 @@ class RegisterForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Reactive variable for password visibility
-    var _obscureText = true.obs;
+    var obscureText = true.obs;
     final screenHeight = MediaQuery.of(context).size.height;
     return Form(
       child: Column(
@@ -79,7 +79,7 @@ class RegisterForm extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Obx(
               () => TextFormField(
-                obscureText: _obscureText.value,
+                obscureText: obscureText.value,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   labelStyle: const TextStyle(color: textColor),
@@ -96,13 +96,13 @@ class RegisterForm extends StatelessWidget {
                   fillColor: secondaryColor,
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _obscureText.value
+                      obscureText.value
                           ? Icons.visibility
                           : Icons.visibility_off,
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      _obscureText.value = !_obscureText.value;
+                      obscureText.value = !obscureText.value;
                     },
                   ),
                 ),
@@ -120,7 +120,9 @@ class RegisterForm extends StatelessWidget {
           // Login button
           CustomButton(
             text: "Register",
-            onPressed: () => {},
+            onPressed: () => {
+              Get.toNamed('/verify')
+            },
           ),
         ],
       ),

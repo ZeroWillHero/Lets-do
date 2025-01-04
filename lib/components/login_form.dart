@@ -9,7 +9,7 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Reactive variable for password visibility
-    var _obscureText = true.obs;
+    var obscureText = true.obs;
 
     return Form(
       child: Column(
@@ -48,7 +48,7 @@ class LoginForm extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Obx(
               () => TextFormField(
-                obscureText: _obscureText.value,
+                obscureText: obscureText.value,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   labelStyle: const TextStyle(color: textColor),
@@ -65,13 +65,13 @@ class LoginForm extends StatelessWidget {
                   fillColor: secondaryColor,
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _obscureText.value
+                      obscureText.value
                           ? Icons.visibility
                           : Icons.visibility_off,
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      _obscureText.value = !_obscureText.value;
+                      obscureText.value = !obscureText.value;
                     },
                   ),
                 ),
@@ -89,7 +89,9 @@ class LoginForm extends StatelessWidget {
           // Login button
           CustomButton(
             text: "Login",
-            onPressed: () => {},
+            onPressed: () => {
+              Get.toNamed('/dashboard')
+            },
           ),
         ],
       ),
