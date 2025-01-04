@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:letsdo/components/date_item.dart';
-import 'package:letsdo/components/mainPagesLinks.dart';
+import 'package:letsdo/components/main_page_links.dart';
 import 'package:letsdo/theme_data.dart';
 import '../controllers/side_appBar_controller.dart';
 
