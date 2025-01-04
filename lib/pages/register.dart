@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:letsdo/components/auth_card_component.dart';
+import 'package:letsdo/components/loading_spinner.dart';
 import 'package:letsdo/components/register_form.dart';
 import 'package:letsdo/theme_data.dart';
 
@@ -89,14 +90,7 @@ class Register extends StatelessWidget {
           // Add spinner
           Obx(() {
             return registerController.isLoading.value
-                ? Container(
-                    color: Colors.black.withOpacity(0.5),
-                    child: const Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.white,
-                      ),
-                    ),
-                  )
+                ? const Spinner()
                 : const SizedBox.shrink();
           }),
         ],
